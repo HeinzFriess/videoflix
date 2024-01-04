@@ -1,0 +1,14 @@
+.landinghead{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    max-width: 1440px;    
+}
+
+.loginButton{
+    cursor: pointer;
+    background-color: red !important;
+    font-size: 24px !important;
+}
+

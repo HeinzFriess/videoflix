@@ -1,0 +1,21 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<h2 mat-dialog-title>Login</h2>
+<mat-dialog-content class="mat-typography">
+  <div style="padding-top: 12px;">
+    <mat-form-field appearance="outline" class="mr16">
+      <mat-label>Username</mat-label>
+      <input [(ngModel)]="username" matInput placeholder="First name">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline" class="mr16">
+      <mat-label>Password</mat-label>
+      <input [(ngModel)]="password" matInput placeholder="E-Mail">
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button [disabled]="loading" [mat-dialog-close]="true" (click)="register()">Register</button>
+  <button mat-button [disabled]="loading" mat-dialog-close>Cancel</button>
+  <button mat-button [disabled]="loading" [mat-dialog-close]="true" (click)="login()" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
