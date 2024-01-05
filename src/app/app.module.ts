@@ -26,6 +26,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatRadioModule} from '@angular/material/radio';
+import { UploadDialogComponent } from './upload-dialog/upload-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     LandingpageComponent,
     MainpageComponent,
     LoginDialogComponent,
-    RegisterDialogComponent
+    RegisterDialogComponent,
+    UploadDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatMenuModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatRadioModule,
 
   ],
   providers: [],

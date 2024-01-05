@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Register</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Title" [(ngModel)]="video.title">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Description" [(ngModel)]="video.description"></textarea>
+  </mat-form-field>
+  <input type="file" (change)="onFileSelected($event)" accept=".mp4, .avi"> 
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="uploadVideo()">Upload</button>
+  <button mat-button (click)="closeDialog()">Close</button>
+</mat-dialog-actions>
+

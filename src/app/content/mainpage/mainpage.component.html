@@ -1,22 +1,33 @@
-<div class="mainpage">
+<div class="head">
     <h1>let's enjoy videoflix</h1>
-    <div class="previewSection">
-        <div class="previeItem">
+</div>
+<div class="mainpage">
 
+    <div *ngIf=loading class="load">
+        <h3>
+            loading
+        </h3>
+        <mat-progress-bar mode="buffer"></mat-progress-bar>
+    </div>
+    <div *ngIf="!loading" class="previewSection">
+        <div *ngFor="let video of videos; index as i" class="previeItem">
+            <h3>
+                {{ video.title }}
+            </h3>
+            <video width="320" height="240" controls>
+                <source src="{{ video.video_file }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
-        <div class="previeItem">
-
-        </div>
-        <div class="previeItem">
-
-        </div>
-        <div class="previeItem">
-
-        </div>
-        <video width="320" height="240" controls>
-            <source src="https://heinz-friess.developerakademie.org/media/videos/gras.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-        </video>
+    </div>
+</div>
+<div class="bottom">
+    <div>
+        logo
+    </div>
+    <div>
+        <button mat-raised-button color="warn" class="uploadBtn" (click)="openDialog()">
+            Upload
+        </button>
     </div>
 </div>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RegisterService } from 'services/RegisterSerivce';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 
+
 @Component({
   selector: 'app-register-dialog',
   templateUrl: './register-dialog.component.html',
@@ -11,7 +12,11 @@ import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 })
 export class RegisterDialogComponent {
 
-  constructor(public dialog: MatDialog,public registerService: RegisterService, private router: Router) { }
+  constructor(
+    public dialog: MatDialog,
+    public registerService: RegisterService,
+    private router: Router,
+    ) { }
   username: any;
   email: any;
   password: any;
