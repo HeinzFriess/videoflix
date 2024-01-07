@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { MessageService } from 'services/MessageService';
 import { VideoService } from 'services/VideoService';
 import { UploadDialogComponent } from 'src/app/upload-dialog/upload-dialog.component';
 
@@ -13,10 +15,15 @@ export class MainpageComponent implements OnInit {
   loading: boolean = true;
   resolution: '480p' | '720p' = '720p';
 
-  constructor(private videoService: VideoService, public dialog: MatDialog) { }
+  constructor(
+    private videoService: VideoService, 
+    public dialog: MatDialog, 
+    private router: Router,
+    private messageService: MessageService,
+    ) { }
 
   ngOnInit(): void {
-
+    this.messageService.showMessage('Login succesfull')
     this.loadVideos();
   }
 
@@ -34,8 +41,15 @@ export class MainpageComponent implements OnInit {
     );
   }
 
-  openDialog(){
+  openDialog() {
     this.dialog.open(UploadDialogComponent);
+  }
+
+  Logout() {
+    localStorage.removeItem('token');
+    localStorage.setItem('auth', "false");
+    this.router.navigate(['./']);
+    this.messageService.showMessage('you are logged out')
   }
 
 }

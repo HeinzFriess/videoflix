@@ -1,15 +1,37 @@
-<h2 mat-dialog-title>Register</h2>
-<mat-dialog-content>
-  <mat-form-field>
-    <input matInput placeholder="Title" [(ngModel)]="video.title">
-  </mat-form-field>
-  <mat-form-field>
-    <textarea matInput placeholder="Description" [(ngModel)]="video.description"></textarea>
-  </mat-form-field>
-  <input type="file" (change)="onFileSelected($event)" accept=".mp4, .avi"> 
+<h2 mat-dialog-title>Upload</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="uploadForm" (ngSubmit)="uploadVideo()">
+    <div style="padding-top: 12px;">
+      <mat-form-field appearance="outline" class="mr16" style="width:240px">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" formControlName="title">
+        <mat-error *ngIf="uploadForm.controls['title'].invalid && uploadForm.controls['title'].touched">
+          Please enter a valid Title
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="mr16" style="width:240px">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Description" formControlName="description"></textarea>
+        <mat-error *ngIf="uploadForm.controls['description'].invalid && uploadForm.controls['description'].touched">
+          Please enter a valid Description
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div style="padding-top: 24px">
+      <mat-form-field appearance="outline" class="mr16" style="width:240px">
+        <ngx-mat-file-input [formControl]="fileControl" [multiple]="multiple" [accept]="accept" [color]="color">
+        </ngx-mat-file-input>
+        <mat-error *ngIf="fileControl.hasError('required')">Please select a file</mat-error>
+      </mat-form-field>
+    </div>
+    <div style="padding-top: 12px;">
+      <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Close</button>
+        <button mat-button type="submit" [disabled]="uploadForm.invalid  || fileControl.invalid"
+          [mat-dialog-close]="uploadForm.valid">Upload</button>
+      </mat-dialog-actions>
+    </div>
+  </form>
 </mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button (click)="uploadVideo()">Upload</button>
-  <button mat-button (click)="closeDialog()">Close</button>
-</mat-dialog-actions>
-

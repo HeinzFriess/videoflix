@@ -5,7 +5,7 @@
 
     <div *ngIf=loading class="load">
         <h3>
-            loading
+            loading.....
         </h3>
         <mat-progress-bar mode="buffer"></mat-progress-bar>
     </div>
@@ -14,6 +14,9 @@
             <h3>
                 {{ video.title }}
             </h3>
+            <h5>
+                {{ video.description }}
+            </h5>
             <video width="320" height="240" controls>
                 <source src="{{ video.video_file }}" type="video/mp4">
                 Your browser does not support the video tag.
@@ -23,7 +26,9 @@
 </div>
 <div class="bottom">
     <div>
-        logo
+        <button mat-raised-button color="warn" class="uploadBtn" (click)="Logout()">
+            Logout
+        </button>
     </div>
     <div>
         <button mat-raised-button color="warn" class="uploadBtn" (click)="openDialog()">

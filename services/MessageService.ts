@@ -9,8 +9,8 @@ export class MessageService {
 
   showMessage(message: string): void {
     this.snackBar.open(message, 'Close', {
-      duration: 3000, // 3 seconds
-      panelClass: ['mat-toolbar', 'mat-warn'], // Customize with Angular Material classes
+      duration: 4000, // 3 seconds
+      panelClass: ['message'], // Customize with Angular Material classes
     });
   }
 }

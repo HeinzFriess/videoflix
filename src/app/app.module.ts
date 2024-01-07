@@ -28,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatRadioModule} from '@angular/material/radio';
 import { UploadDialogComponent } from './upload-dialog/upload-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { UploadDialogComponent } from './upload-dialog/upload-dialog.component';
     HttpClientModule,
     MatSnackBarModule,
     MatRadioModule,
+    ReactiveFormsModule,
+    NgxMatFileInputModule,
 
   ],
   providers: [],

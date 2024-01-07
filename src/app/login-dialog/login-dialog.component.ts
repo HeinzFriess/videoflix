@@ -4,6 +4,7 @@ import { RegisterDialogComponent } from '../register-dialog/register-dialog.comp
 import { AuthService } from 'services/AuthService';
 import { Router } from '@angular/router';
 import { MessageService } from 'services/MessageService';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-dialog',
@@ -12,22 +13,34 @@ import { MessageService } from 'services/MessageService';
 })
 export class LoginDialogComponent implements OnInit {
 
+  loginForm!: FormGroup;
+  username = '';
+  password = '';
+
   constructor(
     public dialog: MatDialog,
     private authService: AuthService,
     private router: Router,
-    private messageService: MessageService
-  ) { }
-
-  showErrorMessage(message: string): void {
-    this.messageService.showMessage(message);
+    private messageService: MessageService,
+    private formBuilder: FormBuilder
+  ) {
+    this.loginForm = this.formBuilder.group({
+      username: ['', [Validators.required, Validators.maxLength(20)]],
+      password: ['', [Validators.required, Validators.maxLength(20)]],
+    });
   }
+
   ngOnInit(): void {
+
   }
   register() {
     const dialogRef = this.dialog.open(RegisterDialogComponent);
   }
   login() {
+
+    this.username = this.loginForm.value.username;
+    this.password = this.loginForm.value.password;
+    
     this.authService.login(this.username, this.password)
       .then(response => {
         // Successful login
@@ -35,14 +48,8 @@ export class LoginDialogComponent implements OnInit {
       })
       .catch(error => {
         // Login errors 
-        this.showErrorMessage('Login error');
-        this.router.navigate(['']); 
+        this.messageService.showMessage('Login error')
+        this.router.navigate(['']);
       });
   }
-
-  username = '';
-  email = '';
-  password = '';
-  loading = false;
-
 }
