@@ -7,7 +7,7 @@ import { AuthGuard } from 'services/AuthGuard';
 
 const routes: Routes = [
   {path: '', component: LandingpageComponent},
-  { path: 'main', component: MainpageComponent, canActivate: [AuthGuard] },
+  { path: 'mainpage', component: MainpageComponent, canActivate: [AuthGuard] },
 
 ];
 

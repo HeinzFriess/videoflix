@@ -44,7 +44,7 @@ export class LoginDialogComponent implements OnInit {
     this.authService.login(this.username, this.password)
       .then(response => {
         // Successful login
-        this.router.navigate(['/main']);
+        this.router.navigate(['/mainpage']);
       })
       .catch(error => {
         // Login errors 
