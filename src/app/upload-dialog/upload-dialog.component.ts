@@ -3,7 +3,6 @@ import { Video } from 'src/models/video.class';
 import { FileUploadService } from 'services/UploadService';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MaxSizeValidator } from '@angular-material-components/file-input';
 import { ThemePalette } from '@angular/material/core';
 import { MessageService } from 'services/MessageService';
 
@@ -20,7 +19,6 @@ export class UploadDialogComponent implements OnInit {
   multiple: boolean = false;
   accept = ".mp4, .avi";
   fileControl: FormControl;
-  maxSize = 16;
   public file: any;
   uploadForm!: FormGroup;
 

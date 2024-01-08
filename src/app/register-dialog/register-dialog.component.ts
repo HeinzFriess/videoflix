@@ -39,8 +39,7 @@ export class RegisterDialogComponent {
     this.registerService.register(this.username, this.password, this.email)
       .then(response => {
         // Successful registered
-        this.messageService.showMessage('Check your Email Inbox')
-        const dialogRef = this.dialog.open(LoginDialogComponent);
+        this.messageService.showMessage('Check your Email Inbox');
       })
       .catch(error => {
         this.messageService.showMessage('Registration error');
