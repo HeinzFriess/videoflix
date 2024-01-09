@@ -42,5 +42,6 @@ testem.log
 Thumbs.db
 
 # SSL
-key.pem
+
 certificate.pem
+key.pem
