@@ -30,6 +30,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { UploadDialogComponent } from './upload-dialog/upload-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { ImprintComponent } from './content/imprint/imprint.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { PrivacyPolicyComponent } from './content/privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,13 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
     MainpageComponent,
     LoginDialogComponent,
     RegisterDialogComponent,
-    UploadDialogComponent
+    UploadDialogComponent,
+    ImprintComponent,
+    FooterComponent,
+    HeaderComponent,
+    ImprintComponent,
+    PrivacyPolicyComponent,
+  
   ],
   imports: [
     BrowserModule,
