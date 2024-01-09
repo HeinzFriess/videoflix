@@ -1,0 +1,25 @@
+.bottom {
+    left: 0;
+    right: 0;
+    height: 64px;
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-top: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    border-top: solid;
+    border-color: red;
+}
+
+.right {
+    display: flex;
+    gap: 24px;
+
+    a {
+        cursor: pointer;
+    }
+}
