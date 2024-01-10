@@ -21,11 +21,9 @@ export class RegisterService {
                 .post(this.apiUrl, { username, password, email })
                 .toPromise()
                 .then((response) => {
-                    console.log('Registration successful', response);
                     return response;
                 })
                 .catch((error) => {
-                    console.error('Register error', error);
                     throw error;
                 });
         

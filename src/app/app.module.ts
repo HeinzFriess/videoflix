@@ -33,6 +33,7 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { ImprintComponent } from './content/imprint/imprint.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { PrivacyPolicyComponent } from './content/privacy-policy/privacy-policy.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { PrivacyPolicyComponent } from './content/privacy-policy/privacy-policy.
     MatRadioModule,
     ReactiveFormsModule,
     NgxMatFileInputModule,
+    MatSelectModule,
 
   ],
   providers: [],

@@ -1,4 +1,16 @@
 <app-header></app-header>
+<div class="menu">
+    <mat-form-field>
+        <mat-label>Resolution</mat-label>
+        <mat-select [(value)]="resolution">
+            <mat-option>None</mat-option>
+            <mat-option value="360">360p</mat-option>
+            <mat-option value="720">720p</mat-option>
+            <mat-option value="1080">1080p</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <a style="cursor: pointer;" (click)="Logout()">LogOut</a>
+</div>
 <div class="mainpage">
     <h1>lets enjoy videoflix</h1>
     <div *ngIf=loading class="load">
@@ -15,12 +27,11 @@
             <h5>
                 {{ video.description }}
             </h5>
-            <video width="320" height="240" controls>
+            <video width="{{resolution}}" controls>
                 <source src="{{ video.video_file }}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
     </div>
 </div>
-<button (click)="Logout()">LogOut</button>
 <app-footer></app-footer>

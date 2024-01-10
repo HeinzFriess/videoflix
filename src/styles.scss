@@ -19,3 +19,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .colorblack{
     color: black;
 }
+
+.infodialog{
+    padding: 32px;
+    h3{
+        margin-block-start: 2px;
+        margin-block-end: 2px;
+    }
+}

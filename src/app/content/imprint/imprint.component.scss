@@ -1,0 +1,14 @@
+p{
+    font-size: 11px;
+}
+
+.infohead{
+    display: flex;
+    justify-content: space-between;
+
+    a{
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}

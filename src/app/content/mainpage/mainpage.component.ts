@@ -13,7 +13,8 @@ import { UploadDialogComponent } from 'src/app/upload-dialog/upload-dialog.compo
 export class MainpageComponent implements OnInit {
   videos: any[] = [];
   loading: boolean = true;
-  resolution: '480p' | '720p' = '720p';
+  resolution = '360';
+
 
   constructor(
     private videoService: VideoService, 
