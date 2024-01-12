@@ -5,6 +5,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { MessageService } from 'services/MessageService';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class UploadDialogComponent implements OnInit {
     private fileUploadService: FileUploadService,
     private formBuilder: FormBuilder,
     private messageService: MessageService,
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.uploadForm = this.formBuilder.group({
@@ -70,6 +72,7 @@ export class UploadDialogComponent implements OnInit {
       .then(response => {
         this.messageService.showMessage("upload succesfull")
         this.dialogRef.close(response);
+        this.router.navigate(['/mainpage']);
       })
       .catch(error => {
         this.messageService.showMessage("upload error")

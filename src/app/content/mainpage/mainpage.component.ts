@@ -11,9 +11,11 @@ import { UploadDialogComponent } from 'src/app/upload-dialog/upload-dialog.compo
   styleUrls: ['./mainpage.component.scss'],
 })
 export class MainpageComponent implements OnInit {
+
   videos: any[] = [];
   loading: boolean = true;
-  resolution = '360';
+  play: boolean = false;
+  file: string = '';
 
 
   constructor(
@@ -46,11 +48,21 @@ export class MainpageComponent implements OnInit {
     this.dialog.open(UploadDialogComponent);
   }
 
-  Logout() {
+  logout() {
     localStorage.removeItem('token');
     localStorage.setItem('auth', "false");
     this.router.navigate(['./']);
     this.messageService.showMessage('you are logged out')
   }
+
+  playVideo(file: string){
+    this.play = true;
+    this.file = file;
+
+  }
+
+  stopVideo() {
+    this.play = false;
+    }
 
 }

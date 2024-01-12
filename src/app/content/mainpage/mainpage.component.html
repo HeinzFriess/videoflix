@@ -1,25 +1,18 @@
 <app-header></app-header>
-<div class="menu">
-    <mat-form-field>
-        <mat-label>Resolution</mat-label>
-        <mat-select [(value)]="resolution">
-            <mat-option>None</mat-option>
-            <mat-option value="360">360p</mat-option>
-            <mat-option value="720">720p</mat-option>
-            <mat-option value="1080">1080p</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <a style="cursor: pointer;" (click)="Logout()">LogOut</a>
-</div>
+
 <div class="mainpage">
-    <h1>lets enjoy videoflix</h1>
+    
+    <div class="menu">
+        <button (click)="logout()">LogOut</button>
+        <button (click)="openDialog()">Upload</button>
+    </div>
     <div *ngIf=loading class="load">
         <h3>
             loading.....
         </h3>
         <mat-progress-bar mode="buffer"></mat-progress-bar>
     </div>
-    <div *ngIf="!loading" class="previewSection">
+    <div *ngIf="!loading && !play" class="previewSection">
         <div *ngFor="let video of videos; index as i" class="previeItem">
             <h3>
                 {{ video.title }}
@@ -27,11 +20,20 @@
             <h5>
                 {{ video.description }}
             </h5>
-            <video width="{{resolution}}" controls>
-                <source src="{{ video.video_file }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <img class="pictureFrame" src="{{ video.video_fileThumbnail }}" alt="">
+            <div *ngIf="!play" class="resolution">
+                <button (click)="playVideo(video.video_file360p)">360p</button>
+                <button (click)="playVideo(video.video_file720p)">720p</button>
+                <button (click)="playVideo(video.video_file1080p)">1080p</button>
+            </div>
         </div>
+    </div>
+    <div class="videosection" *ngIf="!loading && play">
+        <video width="480" controls>
+            <source src="{{ file }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button (click)="stopVideo()">back</button>
     </div>
 </div>
 <app-footer></app-footer>

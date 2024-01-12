@@ -10,6 +10,12 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    button{
+        color: white;
+        background: black;
+        cursor: pointer;
+        margin-top: 12px;
+    }
 }
 
 .previewSection{
@@ -19,6 +25,7 @@
     justify-content: center;
     gap: 24px;
     max-width: 1044px;
+    
 }
 
 .previeItem{
@@ -43,4 +50,15 @@
     cursor: pointer;
     background-color: red !important;
     font-size: 18px !important;
+}
+
+.pictureFrame{
+    width: 320px;
+    height: 180px;
+}
+
+.menu{
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
 }

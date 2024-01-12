@@ -48,7 +48,7 @@ export class LoginDialogComponent implements OnInit {
       })
       .catch(error => {
         // Login errors 
-        this.messageService.showMessage('Login error')
+        this.messageService.showMessage(error.error.error)
         this.router.navigate(['']);
       });
   }

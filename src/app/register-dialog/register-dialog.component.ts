@@ -42,7 +42,8 @@ export class RegisterDialogComponent {
         this.messageService.showMessage('Check your Email Inbox');
       })
       .catch(error => {
-        this.messageService.showMessage('Registration error');
+        console.log(error.error.message);
+        this.messageService.showMessage(error.error.message);
         this.router.navigate(['']);
       });
   }
