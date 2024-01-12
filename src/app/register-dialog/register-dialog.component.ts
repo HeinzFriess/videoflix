@@ -39,7 +39,7 @@ export class RegisterDialogComponent {
     this.registerService.register(this.username, this.password, this.email)
       .then(response => {
         // Successful registered
-        this.messageService.showMessage('Check your Email Inbox');
+        this.messageService.showMessage('Check your '+ this.email + ' Inbox');
       })
       .catch(error => {
         this.messageService.showMessage(error.error.message);
