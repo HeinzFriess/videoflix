@@ -21,6 +21,7 @@
     </div>
     <mat-dialog-actions align="center">
       <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button mat-dialog-close (click)="guestLogin()">Guest Login</button>
       <button mat-button type="submit" [disabled]="loginForm.invalid"
         [mat-dialog-close]="loginForm.valid">Login</button>
     </mat-dialog-actions>

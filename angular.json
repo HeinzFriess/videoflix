@@ -65,7 +65,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "ssl": true,
+            "ssl": false,
             "sslKey": "./key.pem",
             "sslCert": "./certificate.pem",
             "host": "localhost",

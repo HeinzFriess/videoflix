@@ -52,4 +52,7 @@ export class LoginDialogComponent implements OnInit {
         this.router.navigate(['']);
       });
   }
+  guestLogin() {
+    this.router.navigate(['/mainpage']);
+  }
 }

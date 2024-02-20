@@ -2,9 +2,9 @@
 
 <div class="mainpage">
     
-    <div class="menu">
-        <button (click)="logout()">LogOut</button>
-        <button (click)="openDialog()">Upload</button>
+    <div class="menu" *ngIf="!play">
+        <button class="menuBtn" (click)="logout()">LogOut</button>
+        <button class="menuBtn" (click)="openDialog()" *ngIf="loggedIn">Upload</button>
     </div>
     <div *ngIf=loading class="load">
         <h3>
@@ -13,7 +13,7 @@
         <mat-progress-bar mode="buffer"></mat-progress-bar>
     </div>
     <div *ngIf="!loading && !play" class="previewSection">
-        <div *ngFor="let video of videos; index as i" class="previeItem">
+        <div *ngFor="let video of videos; index as i" class="previeItem" (click)="playVideo(video)">
             <h3>
                 {{ video.title }}
             </h3>
@@ -21,19 +21,16 @@
                 {{ video.description }}
             </h5>
             <img class="pictureFrame" src="{{ video.video_fileThumbnail }}" alt="">
-            <div *ngIf="!play" class="resolution">
-                <button (click)="playVideo(video.video_file360p)">360p</button>
-                <button (click)="playVideo(video.video_file720p)">720p</button>
-                <button (click)="playVideo(video.video_file1080p)">1080p</button>
-            </div>
         </div>
     </div>
     <div class="videosection" *ngIf="!loading && play">
+        <div class="menu">
+            <button (click)="stopVideo()" class="backBtn">back</button>
+        </div>
         <video width="480" controls>
             <source src="{{ file }}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <button (click)="stopVideo()">back</button>
     </div>
 </div>
 <app-footer></app-footer>

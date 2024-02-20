@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MessageService } from 'services/MessageService';
 import { VideoService } from 'services/VideoService';
 import { UploadDialogComponent } from 'src/app/upload-dialog/upload-dialog.component';
+import { Video } from 'src/models/video.class';
 
 @Component({
   selector: 'app-mainpage',
@@ -14,8 +15,10 @@ export class MainpageComponent implements OnInit {
 
   videos: any[] = [];
   loading: boolean = true;
+  loggedIn: boolean = false;
   play: boolean = false;
-  file: string = '';
+  file: any = '';
+  screenWidth: number = 360;
 
 
   constructor(
@@ -26,8 +29,12 @@ export class MainpageComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.messageService.showMessage('Login succesfull')
     this.loadVideos();
+    this.screenWidth = window.screen.width;
+    this.loggedIn = (localStorage.getItem('auth') == 'true');
+    if(!this.loggedIn){
+      this.messageService.showMessage('Login succesfull')
+    }
   }
 
   loadVideos() {
@@ -35,11 +42,9 @@ export class MainpageComponent implements OnInit {
       (videos) => {
         this.videos = videos;
         this.loading = false;
-        // Handle the received videos here
       },
       (error) => {
         console.error('Error fetching videos:', error);
-        // Handle the error as needed
       }
     );
   }
@@ -55,9 +60,17 @@ export class MainpageComponent implements OnInit {
     this.messageService.showMessage('you are logged out')
   }
 
-  playVideo(file: string){
+  playVideo(file: Video){
     this.play = true;
-    this.file = file;
+    if(this.screenWidth > 360 && this.screenWidth < 720){
+      this.file = file.video_file360p;
+    }
+    if(this.screenWidth > 720 && this.screenWidth < 1080){
+      this.file = file.video_file720p;
+    }
+    if(this.screenWidth > 1080 ){
+      this.file = file.video_file1080p;
+    }
 
   }
 
