@@ -1,14 +1,12 @@
 <app-header></app-header>
 <div class="landingpage">
     <h1>Welcome to videoflix</h1>
-    <h3 style="max-width: 80%;">
-        The Website to upload and watch your favourite Videoclips
-    </h3>
-    <h3>
-        Login to get access
-    </h3>
+        <p id="blinkingText" >{{ texts[currentIndex] }}</p>     
     <button mat-raised-button color="warn" class="loginButton" (click)="openDialog()">
         Login
+    </button>
+    <button mat-raised-button color="warn" class="loginButton" (click)="guestLogin()">
+        Guest Login
     </button>
     <div class="previewSection">
         <img src="./../../../assets/img/tv-5837826_1920.jpg" class="mainpic">

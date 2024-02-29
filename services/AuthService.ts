@@ -34,5 +34,14 @@ export class AuthService {
                 throw error; 
             });
     }
+
+    guestLogin(): void {
+        localStorage.setItem('token', 'a8af2b96720e4e32abe7e7dcdeed787f0c1bb811');
+        localStorage.setItem('auth', "true");
+    }
+
+    isGuest(): boolean {
+        return !!localStorage.getItem('token');
+    }
     
 }
