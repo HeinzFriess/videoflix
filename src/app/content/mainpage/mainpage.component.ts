@@ -16,6 +16,7 @@ export class MainpageComponent implements OnInit {
   videos: any[] = [];
   loading: boolean = true;
   loggedIn: boolean = false;
+  guest: boolean = false;
   play: boolean = false;
   file: any = '';
   screenWidth: number = 360;
@@ -32,6 +33,7 @@ export class MainpageComponent implements OnInit {
     this.loadVideos();
     this.screenWidth = window.screen.width;
     this.loggedIn = (localStorage.getItem('auth') == 'true');
+    this.guest = (localStorage.getItem('guest') == 'true');
     if(!this.loggedIn){
       this.messageService.showMessage('Login succesfull')
     }
@@ -56,6 +58,7 @@ export class MainpageComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
     localStorage.setItem('auth', "false");
+    localStorage.setItem('guest', "false");
     this.router.navigate(['./']);
     this.messageService.showMessage('you are logged out')
   }

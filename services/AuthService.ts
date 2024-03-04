@@ -38,6 +38,7 @@ export class AuthService {
     guestLogin(): void {
         localStorage.setItem('token', 'a8af2b96720e4e32abe7e7dcdeed787f0c1bb811');
         localStorage.setItem('auth', "true");
+        localStorage.setItem('guest', "true");
     }
 
     isGuest(): boolean {

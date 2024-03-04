@@ -4,7 +4,7 @@
     
     <div class="menu" *ngIf="!play">
         <button class="menuBtn" (click)="logout()">LogOut</button>
-        <button class="menuBtn" (click)="openDialog()" *ngIf="loggedIn">Upload</button>
+        <button class="menuBtn" (click)="openDialog()" *ngIf="loggedIn && !guest">Upload</button>
     </div>
     <div *ngIf=loading class="load">
         <h3>
