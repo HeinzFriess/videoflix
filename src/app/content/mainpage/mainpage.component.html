@@ -14,20 +14,23 @@
     </div>
     <div *ngIf="!loading && !play" class="previewSection">
         <div *ngFor="let video of videos; index as i" class="previeItem" (click)="playVideo(video)">
-            <h3>
-                {{ video.title }}
-            </h3>
-            <h5>
-                {{ video.description }}
-            </h5>
             <img class="pictureFrame" src="{{ video.video_fileThumbnail }}" alt="">
+             <div class="hidden">
+                <h3>
+                    {{ video.title }}
+                </h3>
+                <h5>
+                    {{ video.description }}
+                </h5>
+                <img class="playBtn" src="../../../assets/img/play-3-32.png" alt="">
+            </div>
         </div>
     </div>
     <div class="videosection" *ngIf="!loading && play">
         <div class="menu">
             <button (click)="stopVideo()" class="backBtn">back</button>
         </div>
-        <video width="480" controls>
+        <video width="480" controls autoplay>
             <source src="{{ file }}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
