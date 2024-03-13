@@ -23,10 +23,14 @@ export class UploadDialogComponent implements OnInit {
   public file: any;
   uploadForm!: FormGroup;
 
+  categories: string[] = ['Action', 'Music', 'Comedy', 'Drama', 'Documentary'];
+
+
   video: Video = {
     created_at: new Date(),
     title: '',
     description: '',
+    category: '',
     video_file: null
   };
 
@@ -41,7 +45,8 @@ export class UploadDialogComponent implements OnInit {
   ) {
     this.uploadForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.maxLength(20)]],
-      description: ['', [Validators.required, Validators.maxLength(200)]]
+      description: ['', [Validators.required, Validators.maxLength(200)]],
+      category: ['', [Validators.required, Validators.maxLength(200)]]
     });
     this.fileControl = new FormControl(this.file, [
       Validators.required

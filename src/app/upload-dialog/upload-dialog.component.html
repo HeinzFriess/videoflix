@@ -12,6 +12,18 @@
     </div>
     <div>
       <mat-form-field appearance="outline" class="mr16" style="width:240px">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="uploadForm.controls['category'].invalid && uploadForm.controls['category'].touched">
+          Please select a category
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field appearance="outline" class="mr16" style="width:240px">
         <mat-label>Description</mat-label>
         <textarea matInput placeholder="Description" formControlName="description"></textarea>
         <mat-error *ngIf="uploadForm.controls['description'].invalid && uploadForm.controls['description'].touched">
