@@ -23,7 +23,7 @@ export class UploadDialogComponent implements OnInit {
   public file: any;
   uploadForm!: FormGroup;
 
-  categories: string[] = ['Action', 'Music', 'Comedy', 'Drama', 'Documentary'];
+  categories: string[] = ['Action', 'Music', 'Comedy', 'Drama', 'Documentary', 'Sport', 'Nature'];
 
 
   video: Video = {
