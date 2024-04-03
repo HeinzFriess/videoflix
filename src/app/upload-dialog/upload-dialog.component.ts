@@ -70,6 +70,7 @@ export class UploadDialogComponent implements OnInit {
     this.video.title = this.uploadForm.value.title;
     this.video.description = this.uploadForm.value.description;
     this.video.video_file = this.file[0];
+    this.video.category = this.uploadForm.value.category;
 
     this.messageService.showMessage("upload startet")
 

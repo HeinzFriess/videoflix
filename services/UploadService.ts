@@ -16,6 +16,7 @@ export class FileUploadService {
     const formData: FormData = new FormData();
     formData.append('title', video.title);
     formData.append('description', video.description);
+    formData.append('category', video.category);
     if (video.video_file) {
       formData.append('video_file', video.video_file, video.video_file.name);
     }

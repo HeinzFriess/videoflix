@@ -2,7 +2,7 @@ export class Video {
     id?: number | null;
     title: string;
     description: string;
-    category: string | null;
+    category: string;
     video_file?: File | null;
     video_file360p?: File | null;
     video_file720p?: File | null;

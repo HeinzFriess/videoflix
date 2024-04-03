@@ -31,6 +31,7 @@
 .categorysection{
     display: flex;
     align-items: center;
+    width: 100%;
     gap: 16px;
     padding-bottom: 16px;
     padding-top: 16px;
@@ -117,6 +118,7 @@ h3{
 .pictureFrame{
     width: 320px;
     height: 180px;
+    border-radius: 3px;
 }
 
 .menu{
@@ -148,8 +150,9 @@ h3{
 .background-video-container {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 5%;
+    right: 5%;
+    width: auto;
     height: 100%;
     overflow: hidden;
     z-index: -1; /* Ensure the video is behind other content */
