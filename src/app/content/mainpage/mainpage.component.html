@@ -16,7 +16,7 @@
         <div class="category" *ngFor="let category of categoriesVideoKeys(); let j = index">
             <h1>{{ category }}</h1>
             <div class="category-wrapper">
-                <button class="scroll-button left" (mouseenter)="scrollLeft(j)" (mouseleave)="stopContinuousScrolling()">&#8249;</button>
+                <button class="scrollButton" (mouseenter)="scrollLeft(j)" (mouseleave)="stopContinuousScrolling()">&#8249;</button>
                 <div class="categorysection" #categorysections>
                     <div class="previeItem" *ngFor="let video of categories[category]; index as i"
                         (click)="playVideo(video)">
@@ -32,10 +32,9 @@
                         </div>
                     </div>
                 </div>
-                <button class="scroll-button right" (mouseenter)="scrollRight(j)" (mouseleave)="stopContinuousScrolling()">&#8250;</button>
+                <button class="scrollButton" (mouseenter)="scrollRight(j)" (mouseleave)="stopContinuousScrolling()">&#8250;</button>
             </div>
         </div>
-
     </div>
     <div class="videosection" *ngIf="!loading && play">
         <div class="menu">
@@ -50,6 +49,12 @@
         <video width="480" controls autoplay>
             <source src="{{ file }}" type="video/mp4">
             Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="background-video-container">
+        <video autoplay loop muted class="background-video">
+          <source src="./../../../assets/video/background.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
     </div>
 </div>
