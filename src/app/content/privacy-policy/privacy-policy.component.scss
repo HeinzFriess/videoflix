@@ -12,3 +12,14 @@ p{
         cursor: pointer;
     }
 }
+
+@media (max-width:720px){
+    p{
+        font-size: 8px;
+        margin: 0;
+    }
+    h3{
+        font-size: 9px;
+        margin: 0;
+    }
+}

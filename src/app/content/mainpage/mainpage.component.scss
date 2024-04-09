@@ -171,6 +171,17 @@ h3{
 
   @media (max-width:720px){
 
+    .menu{
+        padding-bottom: 16px;
+    }
+
+    .categorysection{
+        gap: 8px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+        margin-bottom: 2px;
+    }
+
     .pictureFrame{
         width: 240px;
         height: 125px;
@@ -183,11 +194,22 @@ h3{
     .menuBtn{
         width: 72px;
         height: 24px;
-        font-size: 16px;
+        font-size: 16px !important;
     }
 }
 
 @media (max-width:580px){
+
+    .menu{
+        padding-bottom: 12px;
+    }
+
+    .categorysection{
+        gap: 8px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+        margin-bottom: 0px;
+    }
 
     .pictureFrame{
         width: 160px;
@@ -200,6 +222,32 @@ h3{
 
     h1{
         font-size: 16px;
+    }
+
+    .hidden{
+        left: 6px;
+        top: -6px;
+
+        h3{
+            font-size: 16px;
+        }
+        h5{
+            font-size: 12px;
+        }
+
+    }
+
+    .playBtn{
+        position: absolute;
+        bottom: -10px;
+        left: 12px;
+        width: 18px;
+    }
+
+    .menuBtn{
+        width: 60px;
+        height: 20px;
+        font-size: 12px !important;
     }
 }
   

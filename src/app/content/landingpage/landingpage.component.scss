@@ -4,6 +4,12 @@
     flex-direction: column;
 }
 
+.blinkingTextDiv{
+    width: 90%;
+    text-align: center;
+    height: 32px;
+}
+
 .previewSection{
     padding-top: 32px;
     display: flex;
@@ -56,5 +62,5 @@
 }
 
 .blinking {
-    animation: blink 2s infinite;
+    animation: blink 3s infinite;
 }
